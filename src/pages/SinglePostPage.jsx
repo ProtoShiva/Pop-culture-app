@@ -3,38 +3,50 @@ import Image from "../components/Image"
 import PostMenuActions from "../components/PostMenuActions"
 import Search from "../components/Search"
 import Comments from "../components/Comments"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
+import client from "../apis/client"
+import { useQuery } from "@tanstack/react-query"
+import { format } from "timeago.js"
+
+const fetchPost = async (slug) => {
+  const res = await client.get(`posts/${slug}`)
+  return res.data
+}
 
 const SinglePostPage = () => {
+  const { slug } = useParams()
+
+  const { isPending, error, data } = useQuery({
+    queryKey: ["post", slug],
+    queryFn: () => fetchPost(slug),
+  })
+
+  if (isPending) return "loading..."
+  if (error) return "Something went wrong!" + error.message
+  if (!data) return "Post not found!"
+
   return (
-    <div className="flex flex-col gap-8 px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
+    <div className="flex flex-col gap-8">
       {/* detail */}
       <div className="flex gap-8">
         <div className="lg:w-3/5 flex flex-col gap-8">
           <h1 className="text-xl md:text-3xl xl:text-4xl 2xl:text-5xl font-semibold">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas hic
-            iste libero!
+            {data.title}
           </h1>
           <div className="flex items-center gap-2 text-gray-400 text-sm">
             <span>Written by</span>
-            <Link className="text-blue-800">Chris nolan</Link>
+            <Link className="text-blue-800">{data.user.username}</Link>
             <span>on</span>
-            <Link className="text-blue-800">filmmaking</Link>
-            <span>1 day ago</span>
+            <Link className="text-blue-800">{data.category}</Link>
+            <span>{format(data.createdAt)}</span>
           </div>
-          <p className="text-gray-500 font-medium">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio
-            cumque reprehenderit nulla voluptate, inventore ut non. Voluptates
-            architecto ex, distinctio mollitia quam sequi eos quis corrupti cum
-            molestias inventore, suscipit aliquid dolore ad? Alias totam
-            architecto, voluptatum facilis facere corporis, ratione illo quae
-            error quas sunt dignissimos suscipit neque voluptas.
-          </p>
+          <p className="text-gray-500 font-medium">{data.desc}</p>
         </div>
-
-        <div className="hidden lg:block w-2/5">
-          <Image src="postImg.jpeg" w="600" className="rounded-2xl" />
-        </div>
+        {data.img && (
+          <div className="hidden lg:block w-2/5">
+            <Image src={data.img} w="600" className="rounded-2xl" />
+          </div>
+        )}
       </div>
       {/* content */}
       <div className="flex flex-col md:flex-row gap-12 justify-between">
@@ -130,14 +142,15 @@ const SinglePostPage = () => {
           <h1 className="mb-4 text-sm font-medium">Author</h1>
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-8">
-              <Image
-                src="postImg.jpeg"
-                className="w-12 h-12 rounded-full object-cover"
-                w="48"
-                h="48"
-              />
-
-              <Link className="text-blue-800">Himau</Link>
+              {data.user.img && (
+                <Image
+                  src={data.user.img}
+                  className="w-12 h-12 rounded-full object-cover"
+                  w="48"
+                  h="48"
+                />
+              )}
+              <Link className="text-blue-800">{data.user.username}</Link>
             </div>
             <p className="text-sm text-gray-500">
               Lorem ipsum dolor sit amet consectetur
@@ -151,7 +164,7 @@ const SinglePostPage = () => {
               </Link>
             </div>
           </div>
-          <PostMenuActions />
+          <PostMenuActions post={data} />
           <h1 className="mt-8 mb-4 text-sm font-medium">Categories</h1>
           <div className="flex flex-col gap-2 text-sm">
             <Link className="underline">All</Link>
@@ -175,7 +188,7 @@ const SinglePostPage = () => {
           <Search />
         </div>
       </div>
-      <Comments />
+      <Comments postId={data._id} />
     </div>
   )
 }
