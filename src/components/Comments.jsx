@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import client from "../apis/client"
 import { toast } from "react-toastify"
 import Comment from "./Comment"
+import { useSelector } from "react-redux"
 
 const fetchComments = async (postId) => {
   const res = await client.get(`comments/${postId}`)
@@ -9,6 +10,7 @@ const fetchComments = async (postId) => {
 }
 
 const Comments = ({ postId }) => {
+  const user = useSelector((store) => store.user.userDetails)
   const { isPending, error, data } = useQuery({
     queryKey: ["comments", postId],
     queryFn: () => fetchComments(postId),
@@ -18,7 +20,7 @@ const Comments = ({ postId }) => {
 
   const mutation = useMutation({
     mutationFn: async (newComment) => {
-      return axios.post(`comments/${postId}`, newComment)
+      return client.post(`comments/${postId}`, newComment)
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["comments", postId] })
@@ -29,6 +31,7 @@ const Comments = ({ postId }) => {
   })
 
   const handleSubmit = (e) => {
+    console.log("data")
     e.preventDefault()
     const formData = new FormData(e.target)
 
@@ -51,7 +54,10 @@ const Comments = ({ postId }) => {
           placeholder="Write a comment..."
           className="w-full p-4 rounded-xl"
         />
-        <button className="bg-blue-800 px-4 py-3 text-white font-medium rounded-xl">
+        <button
+          type="submit"
+          className="bg-blue-800 px-4 py-3 text-white font-medium rounded-xl"
+        >
           Send
         </button>
       </form>

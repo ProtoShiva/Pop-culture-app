@@ -11,7 +11,6 @@ const Navbar = () => {
       <div className="flex justify-between w-[63%] items-center">
         <Link to="/" className="object-cover cursor-pointer">
           <img src={appImg} alt="" className="size-14" />
-          {/* <Image src="/icon.png" alt="logo" w={52} h={52} /> */}
         </Link>
         <div>
           <ul className="flex gap-12">
@@ -40,10 +39,7 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
+                <Image src="movie-logo.jpeg" alt="logo" w={52} h={52} />
               </div>
             </div>
             <ul

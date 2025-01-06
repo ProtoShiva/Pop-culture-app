@@ -2,8 +2,11 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import Image from "./Image"
 import { toast } from "react-toastify"
 import client from "../apis/client"
+import { format } from "timeago.js"
+import { useSelector } from "react-redux"
 
 const Comment = ({ comment, postId }) => {
+  const user = useSelector((store) => store.user.userDetails)
   const role = "admin"
 
   const queryClient = useQueryClient()
