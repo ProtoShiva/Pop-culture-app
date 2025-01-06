@@ -20,9 +20,9 @@ const PostListItem = ({ post }) => {
           <span>Written by</span>
           <Link
             className="text-blue-800"
-            to={`/posts?author=${post.user.username}`}
+            to={`/posts?author=${post.user.name}`}
           >
-            {post.user.username}
+            {post.user.name}
           </Link>
           <span>on</span>
           <Link className="text-blue-800">{post.category}</Link>

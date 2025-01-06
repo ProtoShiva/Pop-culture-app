@@ -1,18 +1,15 @@
 import React from "react"
 import PostListItem from "./PostListItem"
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query"
+import { useInfiniteQuery } from "@tanstack/react-query"
 import client from "../apis/client"
 import InfiniteScroll from "react-infinite-scroll-component"
-import { useQuery } from "@tanstack/react-query"
 import { useSearchParams } from "react-router-dom"
 
 const fetchPosts = async (pageParam, searchParams) => {
   const searchParamsObj = Object.fromEntries([...searchParams])
 
-  console.log(searchParamsObj)
-
   const res = await client.get("posts", {
-    params: { page: pageParam, limit: 10, ...searchParamsObj },
+    params: { page: pageParam, limit: 5, ...searchParamsObj },
   })
   return res.data
 }

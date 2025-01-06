@@ -1,6 +1,7 @@
 import React from "react"
 import Image from "./Image"
 import LogoutModal from "./LogoutModal"
+import appImg from "../asset/icon.png"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 const Navbar = () => {
@@ -9,7 +10,8 @@ const Navbar = () => {
     <div className="navbar flex justify-between items-center px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
       <div className="flex justify-between w-[63%] items-center">
         <Link to="/" className="object-cover cursor-pointer">
-          <Image src="/default-image.jpg" alt="logo" w={38} h={38} />
+          <img src={appImg} alt="" className="size-14" />
+          {/* <Image src="/icon.png" alt="logo" w={52} h={52} /> */}
         </Link>
         <div>
           <ul className="flex gap-12">
