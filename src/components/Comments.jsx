@@ -74,7 +74,7 @@ const Comments = ({ postId }) => {
                 createdAt: new Date(),
                 user: {
                   img: user.imageUrl,
-                  username: user.username,
+                  username: user.name,
                 },
               }}
             />

@@ -4,6 +4,7 @@ import Image from "./Image"
 import client from "../apis/client"
 import { useQuery } from "@tanstack/react-query"
 import { format } from "timeago.js"
+import { truncateText } from "../utils/baseURL"
 
 const fetchPost = async () => {
   const res = await client.get(`posts?featured=true&limit=4&sort=newest`)
@@ -50,7 +51,7 @@ const FeaturedPosts = () => {
         </Link>
       </div>
       {/* Others */}
-      <div className="w-full lg:w-1/2 flex flex-col gap-4">
+      <div className="w-full lg:w-1/2 flex flex-col gap-8">
         {/* second */}
         {posts[1] && (
           <div className="lg:h-1/3 flex justify-between gap-4">
@@ -78,7 +79,7 @@ const FeaturedPosts = () => {
                 to={posts[1].slug}
                 className="text-base sm:text-lg md:text-2xl lg:text-xl xl:text-2xl font-medium"
               >
-                {posts[1].title}
+                {truncateText(posts[1].title, 12)}
               </Link>
             </div>
           </div>
@@ -99,7 +100,7 @@ const FeaturedPosts = () => {
             <div className="w-2/3">
               {/* details */}
               <div className="flex items-center gap-4 text-sm lg:text-base mb-4">
-                <h1 className="font-semibold">02.</h1>
+                <h1 className="font-semibold">03.</h1>
                 <Link className="text-blue-800">{posts[2].category}</Link>
                 <span className="text-gray-500 text-sm">
                   {format(posts[2].createdAt)}
@@ -110,7 +111,7 @@ const FeaturedPosts = () => {
                 to={posts[1].slug}
                 className="text-base sm:text-lg md:text-2xl lg:text-xl xl:text-2xl font-medium"
               >
-                {posts[2].title}
+                {truncateText(posts[2].title, 12)}
               </Link>
             </div>
           </div>
@@ -131,8 +132,10 @@ const FeaturedPosts = () => {
             <div className="w-2/3">
               {/* details */}
               <div className="flex items-center gap-4 text-sm lg:text-base mb-4">
-                <h1 className="font-semibold">02.</h1>
-                <Link className="text-blue-800">{posts[3].category}</Link>
+                <h1 className="font-semibold">04.</h1>
+                <Link className="text-blue-800">
+                  {truncateText(posts[3].category, 12)}
+                </Link>
                 <span className="text-gray-500 text-sm">
                   {format(posts[3].createdAt)}
                 </span>

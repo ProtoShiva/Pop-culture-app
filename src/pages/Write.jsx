@@ -76,12 +76,10 @@ const Write = () => {
             id=""
             className="p-2 rounded-xl bg-white shadow-md"
           >
-            <option value="general">Films</option>
-            <option value="web-design">Anime</option>
-            <option value="development">TV</option>
-            <option value="databases">Gaming</option>
-            <option value="seo">Comic Book</option>
-            <option value="marketing">Novel</option>
+            <option value="Films">Film</option>
+            <option value="Anime">Anime</option>
+            <option value="TV">TV</option>
+            <option value="Gaming">Gaming</option>
           </select>
         </div>
         <textarea
