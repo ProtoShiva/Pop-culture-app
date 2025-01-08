@@ -39,7 +39,12 @@ const FeaturedPosts = () => {
         {/* details */}
         <div className="flex items-center gap-4">
           <h1 className="font-semibold lg:text-lg">01.</h1>
-          <Link className="text-blue-800 lg:text-lg">{posts[0].category}</Link>
+          <Link
+            to={`/posts?cat=${posts[0].category}`}
+            className="text-blue-800 lg:text-lg"
+          >
+            {posts[0].category}
+          </Link>
           <span className="text-gray-500">{format(posts[0].createdAt)}</span>
         </div>
         {/* title */}
@@ -69,7 +74,12 @@ const FeaturedPosts = () => {
               {/* details */}
               <div className="flex items-center gap-4 text-sm lg:text-base mb-4">
                 <h1 className="font-semibold">02.</h1>
-                <Link className="text-blue-800">{posts[1].category}</Link>
+                <Link
+                  to={`/posts?cat=${posts[1].category}`}
+                  className="text-blue-800"
+                >
+                  {posts[1].category}
+                </Link>
                 <span className="text-gray-500 text-sm">
                   {format(posts[1].createdAt)}
                 </span>
@@ -101,7 +111,12 @@ const FeaturedPosts = () => {
               {/* details */}
               <div className="flex items-center gap-4 text-sm lg:text-base mb-4">
                 <h1 className="font-semibold">03.</h1>
-                <Link className="text-blue-800">{posts[2].category}</Link>
+                <Link
+                  to={`/posts?cat=${posts[2].category}`}
+                  className="text-blue-800"
+                >
+                  {posts[2].category}
+                </Link>
                 <span className="text-gray-500 text-sm">
                   {format(posts[2].createdAt)}
                 </span>
@@ -133,7 +148,10 @@ const FeaturedPosts = () => {
               {/* details */}
               <div className="flex items-center gap-4 text-sm lg:text-base mb-4">
                 <h1 className="font-semibold">04.</h1>
-                <Link className="text-blue-800">
+                <Link
+                  to={`/posts?cat=${posts[3].category}`}
+                  className="text-blue-800"
+                >
                   {truncateText(posts[3].category, 12)}
                 </Link>
                 <span className="text-gray-500 text-sm">
