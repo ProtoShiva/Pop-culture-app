@@ -17,13 +17,13 @@ const Navbar = () => {
             <Link to="/" className="cursor-pointer">
               Home
             </Link>
-            <Link to="/" className="cursor-pointer">
+            <Link to="/posts?sort=trending" className="cursor-pointer">
               Trending
             </Link>
-            <Link to="/" className="cursor-pointer">
+            <Link to="/posts?sort=popular" className="cursor-pointer">
               Most Popular
             </Link>
-            <Link to="/" className="cursor-pointer">
+            <Link to="/about" className="cursor-pointer">
               About
             </Link>
           </ul>

@@ -3,6 +3,7 @@ import client from "../apis/client"
 import { toast } from "react-toastify"
 import Comment from "./Comment"
 import { useSelector } from "react-redux"
+import { useRef } from "react"
 
 const fetchComments = async (postId) => {
   const res = await client.get(`comments/${postId}`)
@@ -10,6 +11,7 @@ const fetchComments = async (postId) => {
 }
 
 const Comments = ({ postId }) => {
+  const textAreaRef = useRef(null)
   const user = useSelector((store) => store.user.userDetails)
   const { isPending, error, data } = useQuery({
     queryKey: ["comments", postId],
@@ -39,6 +41,8 @@ const Comments = ({ postId }) => {
     }
 
     mutation.mutate(data)
+
+    textAreaRef.current.value = ""
   }
 
   return (
@@ -50,6 +54,7 @@ const Comments = ({ postId }) => {
       >
         <textarea
           name="desc"
+          ref={textAreaRef}
           placeholder="Write a comment..."
           className="w-full p-4 rounded-xl"
         />

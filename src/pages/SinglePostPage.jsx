@@ -26,7 +26,7 @@ const SinglePostPage = () => {
   if (!data) return "Post not found!"
 
   return (
-    <div className="flex flex-col gap-8 px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
+    <div className="flex mt-8 flex-col gap-8 px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
       {/* detail */}
       <div className="flex gap-8">
         <div className="lg:w-3/5 flex flex-col gap-8">

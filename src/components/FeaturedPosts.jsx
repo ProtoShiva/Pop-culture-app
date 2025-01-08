@@ -152,7 +152,7 @@ const FeaturedPosts = () => {
                   to={`/posts?cat=${posts[3].category}`}
                   className="text-blue-800"
                 >
-                  {truncateText(posts[3].category, 12)}
+                  {posts[3].category}
                 </Link>
                 <span className="text-gray-500 text-sm">
                   {format(posts[3].createdAt)}
@@ -163,7 +163,7 @@ const FeaturedPosts = () => {
                 to={posts[3].slug}
                 className="text-base sm:text-lg md:text-2xl lg:text-xl xl:text-2xl font-medium"
               >
-                {posts[3].title}
+                {truncateText(posts[3].title, 12)}
               </Link>
             </div>
           </div>

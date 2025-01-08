@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { getUserDetails } from "./apis/auth"
 import { addUser } from "./redux/slices/userSlices"
+import AboutPage from "./pages/AboutPage"
 
 const App = () => {
   const [loading, setLoading] = useState(true)
@@ -36,6 +37,7 @@ const App = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
           </>
         )}
         <Route element={<ProtectedRoute />}>

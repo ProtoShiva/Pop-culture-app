@@ -7,12 +7,6 @@ import { Link } from "react-router-dom"
 const HomePage = () => {
   return (
     <div className="mt-4 flex flex-col gap-4 px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
-      {/* BREADCRUMB */}
-      <div className="flex gap-4">
-        <Link to="/">Home</Link>
-        <span>•</span>
-        <span className="text-blue-800">Blogs and Articles</span>
-      </div>
       {/* INTRODUCTION */}
       <div className="flex items-center justify-between">
         {/* titles */}
