@@ -22,17 +22,20 @@ const authenticator = async () => {
   }
 }
 
-const Upload = ({ children, type, setProgress, setData }) => {
+const Upload = ({ children, type, setProgress, setData, setLoading }) => {
   const ref = useRef(null)
 
   const onError = (err) => {
     toast.error("Image upload failed!")
+    setLoading(false)
   }
   const onSuccess = (res) => {
     setData(res)
+    setLoading(false)
   }
   const onUploadProgress = (progress) => {
     setProgress(Math.round((progress.loaded / progress.total) * 100))
+    setLoading(true)
   }
 
   return (

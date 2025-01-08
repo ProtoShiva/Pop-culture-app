@@ -37,7 +37,7 @@ const App = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
+            <Route path="/" element={<AboutPage />} />
           </>
         )}
         <Route element={<ProtectedRoute />}>
@@ -47,6 +47,7 @@ const App = () => {
           <Route path="/:slug" element={<SinglePostPage />} />
           <Route path="/write" element={<Write />} />
           <Route path="/posts" element={<PostListPage />} />
+          <Route path="/about" element={<AboutPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

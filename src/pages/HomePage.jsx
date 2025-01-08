@@ -58,6 +58,7 @@ const HomePage = () => {
         </Link>
       </div>
       {/* CATEGORIES */}
+
       <MainCategories />
       {/* FEATURED POSTS */}
       <FeaturedPosts />

@@ -47,7 +47,6 @@ const SinglePostPage = () => {
             </Link>
             <span>{format(data.createdAt)}</span>
           </div>
-          <p className="text-gray-500 font-medium">{data.desc}</p>
         </div>
         {data.img && (
           <div className="hidden lg:block w-2/5">
@@ -58,55 +57,11 @@ const SinglePostPage = () => {
       {/* content */}
       <div className="flex flex-col md:flex-row gap-12 justify-between">
         {/* text */}
-        <div className="lg:text-lg flex flex-col gap-6 text-justify">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias neque
-            fugiat itaque quas esse sunt cupiditate possimus cumque asperiores,
-            dolorem, dolores eligendi amet perferendis illum repellat nam quam
-            facilis veritatis. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Sint ipsa fuga nihil numquam, quam dicta quas
-            exercitationem aliquam maxime quaerat, enim autem culpa sequi at!
-            Earum facere in ducimus culpa. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Libero fuga modi amet error aliquid
-            eos nobis vero soluta facilis, voluptatem, voluptates quod suscipit
-            obcaecati voluptate quaerat laborum, voluptatum dicta ipsum.
-          </p>
+        <div className="lg:text-lg my-content flex flex-col gap-6 text-justify">
+          <div
+            className="text-green-500"
+            dangerouslySetInnerHTML={{ __html: data.content }}
+          ></div>
         </div>
         {/* menu */}
         <div className="px-4 h-max sticky top-8">

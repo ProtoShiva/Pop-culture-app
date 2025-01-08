@@ -6,10 +6,12 @@ import client from "../apis/client"
 import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
 import Upload from "../components/Upload"
+import Image from "../components/Image"
 
 const Write = () => {
   const [value, setValue] = useState("")
   const [cover, setCover] = useState("")
+  const [loading, setLoading] = useState(false)
   const [img, setImg] = useState("")
   const [video, setVideo] = useState("")
   const [progress, setProgress] = useState(0)
@@ -55,12 +57,29 @@ const Write = () => {
     <div className="h-[calc(100vh-64px)] md:h-[calc(100vh-80px)] flex flex-col gap-6 px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
       <h1 className="text-cl font-light">Create a New Post</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-6 flex-1 mb-6">
-        <Upload type="image" setProgress={setProgress} setData={setCover}>
-          <button className="w-max p-2 shadow-md rounded-xl text-sm text-gray-500 bg-white">
-            Add a cover image
-          </button>
-        </Upload>
-
+        <div className="flex items-center gap-3">
+          <Upload
+            type="image"
+            setProgress={setProgress}
+            setData={setCover}
+            setLoading={setLoading}
+          >
+            <button className="w-max p-2 shadow-md rounded-xl text-sm text-gray-500 bg-white">
+              Add a cover image
+            </button>
+          </Upload>
+          {loading && (
+            <span className="loading loading-spinner text-warning"></span>
+          )}
+          {cover && (
+            <Image
+              src={cover.filePath}
+              className="rounded-3xl object-cover"
+              w="45"
+              h="45"
+            />
+          )}
+        </div>
         <input
           className="text-4xl font-semibold bg-transparent outline-none"
           type="text"
@@ -110,8 +129,8 @@ const Write = () => {
         >
           {mutation.isPending ? "Loading..." : "Send"}
         </button>
-        {"Progress:" + progress}
-        {mutation.isError && <span>{mutation.error.message}</span>}
+        {/* {"Progress:" + progress}
+        {mutation.isError && <span>{mutation.error.message}</span>} */}
       </form>
     </div>
   )

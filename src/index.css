@@ -8,6 +8,11 @@ body {
   overflow-x: hidden;
 }
 
+.my-content * {
+  color: inherit !important;
+  background-color: transparent !important;
+}
+
 .animatedButton {
   animation-duration: 10000ms;
 }
