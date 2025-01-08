@@ -35,9 +35,16 @@ const SinglePostPage = () => {
           </h1>
           <div className="flex items-center gap-2 text-gray-400 text-sm">
             <span>Written by</span>
-            <Link className="text-blue-800">{data.user.name}</Link>
+            <Link
+              to={`/posts?author=${data.user.name}`}
+              className="text-blue-800"
+            >
+              {data.user.name}
+            </Link>
             <span>on</span>
-            <Link className="text-blue-800">{data.category}</Link>
+            <Link to={`/posts?cat=${data.category}`} className="text-blue-800">
+              {data.category}
+            </Link>
             <span>{format(data.createdAt)}</span>
           </div>
           <p className="text-gray-500 font-medium">{data.desc}</p>
@@ -114,7 +121,12 @@ const SinglePostPage = () => {
                   h="48"
                 />
               )}
-              <Link className="text-blue-800">{data.user.name}</Link>
+              <Link
+                to={`/posts?author=${data.user.name}`}
+                className="text-blue-800"
+              >
+                {data.user.name}
+              </Link>
             </div>
             <p className="text-sm text-gray-500">
               Lorem ipsum dolor sit amet consectetur
@@ -131,21 +143,20 @@ const SinglePostPage = () => {
           <PostMenuActions post={data} />
           <h1 className="mt-8 mb-4 text-sm font-medium">Categories</h1>
           <div className="flex flex-col gap-2 text-sm">
-            <Link className="underline">All</Link>
-            <Link className="underline" to="/">
+            <Link to="/posts?cat=general" className="underline">
+              All
+            </Link>
+            <Link to="/posts?cat=Films" className="underline">
               Film
             </Link>
-            <Link className="underline" to="/">
+            <Link className="underline" to="/posts?cat=TV">
               TV
             </Link>
-            <Link className="underline" to="/">
+            <Link className="underline" to="/posts?cat=Anime">
               Anime
             </Link>
-            <Link className="underline" to="/">
+            <Link className="underline" to="/posts?cat=Gaming">
               Gaming
-            </Link>
-            <Link className="underline" to="/">
-              Novel
             </Link>
           </div>
           <h1 className="mt-8 mb-4 text-sm font-medium">Search</h1>

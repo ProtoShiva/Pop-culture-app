@@ -31,7 +31,6 @@ const Comments = ({ postId }) => {
   })
 
   const handleSubmit = (e) => {
-    console.log("data")
     e.preventDefault()
     const formData = new FormData(e.target)
 
