@@ -4,6 +4,7 @@ import { toast } from "react-toastify"
 import client from "../apis/client"
 import { format } from "timeago.js"
 import { useSelector } from "react-redux"
+import { MdDelete } from "react-icons/md"
 
 const Comment = ({ comment, postId }) => {
   const user = useSelector((store) => store.user.userDetails)
@@ -26,7 +27,7 @@ const Comment = ({ comment, postId }) => {
   })
 
   return (
-    <div className="p-4 bg-slate-50 rounded-xl mb-8">
+    <div className="p-4 bg-slate-50 rounded-xl mb-6">
       <div className="flex items-center gap-4">
         {comment.user.img && (
           <Image
@@ -41,10 +42,10 @@ const Comment = ({ comment, postId }) => {
         </span>
         {user && (comment.user.name === user.name || role === "admin") && (
           <span
-            className="text-xs text-red-300 hover:text-red-500 cursor-pointer"
+            className="text-xl text-red-300 hover:text-red-500 cursor-pointer"
             onClick={() => mutation.mutate()}
           >
-            delete
+            <MdDelete />
             {mutation.isPending && <span>(in progress)</span>}
           </span>
         )}

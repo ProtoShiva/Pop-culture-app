@@ -16,7 +16,7 @@ const PostMenuActions = ({ post }) => {
   } = useQuery({
     queryKey: ["savedPosts"],
     queryFn: async () => {
-      return client.get(`users/saved`)
+      return client.get(`user/saved`)
     },
   })
 
@@ -40,7 +40,7 @@ const PostMenuActions = ({ post }) => {
 
   const saveMutation = useMutation({
     mutationFn: async () => {
-      return client.patch(`users/save`, {
+      return client.patch(`user/save`, {
         postId: post._id,
       })
     },
@@ -151,7 +151,7 @@ const PostMenuActions = ({ post }) => {
           )}
         </div>
       )}
-      {user && (post.user.username === user.username || isAdmin) && (
+      {user && (post.user.name === user.name || isAdmin) && (
         <div
           className="flex items-center gap-2 py-2 text-sm cursor-pointer"
           onClick={handleDelete}
