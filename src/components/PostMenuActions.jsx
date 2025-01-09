@@ -21,7 +21,7 @@ const PostMenuActions = ({ post }) => {
   })
 
   const isAdmin = user?.role === "admin" || false
-  const isSaved = savedPosts?.data?.some((p) => p === post._id) || false
+  const isSaved = savedPosts?.data?.some((p) => p.postId === post._id) || false
 
   const deleteMutation = useMutation({
     mutationFn: async () => {
@@ -42,6 +42,10 @@ const PostMenuActions = ({ post }) => {
     mutationFn: async () => {
       return client.patch(`user/save`, {
         postId: post._id,
+        image: post.img,
+        title: post.title,
+        cat: post.category,
+        slug: post.slug,
       })
     },
     onSuccess: () => {

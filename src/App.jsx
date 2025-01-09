@@ -12,6 +12,7 @@ import { useEffect, useState } from "react"
 import { getUserDetails } from "./apis/auth"
 import { addUser } from "./redux/slices/userSlices"
 import AboutPage from "./pages/AboutPage"
+import ProfilePage from "./pages/ProfilePage"
 
 const App = () => {
   const [loading, setLoading] = useState(true)
@@ -48,6 +49,7 @@ const App = () => {
           <Route path="/write" element={<Write />} />
           <Route path="/posts" element={<PostListPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
         </Route>
       </Routes>
     </BrowserRouter>
