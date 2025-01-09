@@ -11,8 +11,6 @@ import UserData from "../components/UserData"
 
 const ProfilePage = () => {
   const [cover, setCover] = useState("")
-  const [pic, setPic] = useState(false)
-
   const user = useSelector((store) => store.user.userDetails)
 
   const mutation = useMutation({
@@ -33,7 +31,7 @@ const ProfilePage = () => {
     mutation.mutate(data)
   }
   return (
-    <div className=" mt-4 px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
+    <div className="h-fit mt-4 px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
       <div className="bg-white rounded-lg border border-neutral-200 p-8 mb-6">
         <div className="flex flex-col md:flex-row items-center gap-6">
           <Image
@@ -51,12 +49,9 @@ const ProfilePage = () => {
             </p>
             <form onSubmit={handleSubmit} className="flex items-center gap-3">
               <Upload type="image" setData={setCover}>
-                <button
-                  onClick={() => setPic("false")}
-                  className="px-4 py-2 bg-neutral-800 text-white rounded-lg hover:bg-neutral-700 transition-colors"
-                >
+                <div className="px-4 py-2 bg-neutral-800 text-white rounded-lg hover:bg-neutral-700 transition-colors">
                   Edit Pic
-                </button>
+                </div>
               </Upload>
 
               <button
@@ -78,17 +73,21 @@ const ProfilePage = () => {
           </p>
         </div>
         <div className="w-full grid grid-cols-3 gap-6 p-6">
-          {user.savedPosts.map((post) => {
-            return (
-              <PostCard
-                key={post.postId}
-                image={post.image}
-                title={post.title}
-                cat={post.cat}
-                slug={post.slug}
-              />
-            )
-          })}
+          {user.savedPosts ? (
+            user.savedPosts.map((post) => {
+              return (
+                <PostCard
+                  key={post.postId}
+                  image={post.image}
+                  title={post.title}
+                  cat={post.cat}
+                  slug={post.slug}
+                />
+              )
+            })
+          ) : (
+            <div>You have not created any posts yet</div>
+          )}
         </div>
       </div>
     </div>

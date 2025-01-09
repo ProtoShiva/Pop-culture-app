@@ -56,7 +56,7 @@ const Write = () => {
 
   return (
     <div className="h-[calc(100vh-64px)] md:h-[calc(100vh-80px)] flex flex-col gap-6 px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
-      <h1 className="text-cl font-light">Create a New Post</h1>
+      <h1 className="text-cl font-bold">Create a New Post</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-6 flex-1 mb-6">
         <div className="flex items-center gap-3">
           <Upload
@@ -65,9 +65,9 @@ const Write = () => {
             setData={setCover}
             setLoading={setLoading}
           >
-            <button className="w-max p-2 shadow-md rounded-xl text-sm text-gray-500 bg-white">
+            <div className="w-max p-2 shadow-md rounded-xl text-sm text-gray-500 bg-white">
               Add a cover image
-            </button>
+            </div>
           </Upload>
           {loading && (
             <span className="loading loading-spinner text-warning"></span>
@@ -82,9 +82,9 @@ const Write = () => {
           )}
         </div>
         <input
-          className="text-4xl font-semibold bg-transparent outline-none"
+          className="text-4xl p-2 font-semibold bg-transparent outline-none"
           type="text"
-          placeholder="My Awesome Story"
+          placeholder="Add Title Here"
           name="title"
         />
         <div className="flex items-center gap-4">
@@ -125,13 +125,13 @@ const Write = () => {
           />
         </div>
         <button
+          type="submit"
           disabled={mutation.isPending || loading}
           className="bg-blue-800 text-white font-medium rounded-xl mt-4 p-2 w-36 disabled:bg-blue-400 disabled:cursor-not-allowed"
         >
           {mutation.isPending ? "Loading..." : "Send"}
         </button>
       </form>
-      <Shimmer />
     </div>
   )
 }
