@@ -5,6 +5,7 @@ import client from "../apis/client"
 import { useQuery } from "@tanstack/react-query"
 import { format } from "timeago.js"
 import { truncateText } from "../utils/baseURL"
+import Shimmer from "./Shimmer"
 
 const fetchPost = async () => {
   const res = await client.get(`posts?featured=true&limit=4&sort=newest`)
@@ -17,7 +18,7 @@ const FeaturedPosts = () => {
     queryFn: () => fetchPost(),
   })
 
-  if (isPending) return "loading..."
+  if (isPending) return <Shimmer />
   if (error) return "Something went wrong!" + error.message
 
   const posts = data.posts

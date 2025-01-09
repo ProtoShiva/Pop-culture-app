@@ -7,6 +7,7 @@ import { Link, useParams } from "react-router-dom"
 import client from "../apis/client"
 import { useQuery } from "@tanstack/react-query"
 import { format } from "timeago.js"
+import Shimmer from "../components/Shimmer"
 
 const fetchPost = async (slug) => {
   const res = await client.get(`posts/${slug}`)
@@ -21,7 +22,7 @@ const SinglePostPage = () => {
     queryFn: () => fetchPost(slug),
   })
 
-  if (isPending) return "loading..."
+  if (isPending) return <Shimmer />
   if (error) return "Something went wrong!" + error.message
   if (!data) return "Post not found!"
 

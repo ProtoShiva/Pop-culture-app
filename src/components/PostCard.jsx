@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 const PostCard = ({ image, title, cat, slug }) => {
   return (
-    <div className="card card-compact bg-base-100 w-72 shadow-xl">
+    <div className="card card-compact bg-base-100 w-72 h-80 shadow-xl">
       <figure>
         <Image src={image} alt="logo" />
       </figure>

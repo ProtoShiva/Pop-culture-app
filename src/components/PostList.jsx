@@ -4,6 +4,7 @@ import { useInfiniteQuery } from "@tanstack/react-query"
 import client from "../apis/client"
 import InfiniteScroll from "react-infinite-scroll-component"
 import { useSearchParams } from "react-router-dom"
+import Shimmer from "./Shimmer"
 
 const fetchPosts = async (pageParam, searchParams) => {
   const searchParamsObj = Object.fromEntries([...searchParams])
@@ -25,7 +26,7 @@ const PostList = () => {
       lastPage.hasMore ? pages.length + 1 : undefined,
   })
 
-  if (status === "loading") return "Loading..."
+  if (status === "loading") return <Shimmer />
   // if (isFetching) return "Loading bhai..."
 
   if (status === "error") return "Something went wrong!"
@@ -38,7 +39,7 @@ const PostList = () => {
       dataLength={allPosts?.length}
       next={fetchNextPage}
       hasMore={!!hasNextPage}
-      loader={<h4>Loading more posts bro...</h4>}
+      loader={<Shimmer />}
       endMessage={
         <p>
           <b>All posts loaded!</b>

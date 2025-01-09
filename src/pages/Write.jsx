@@ -7,6 +7,7 @@ import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
 import Upload from "../components/Upload"
 import Image from "../components/Image"
+import Shimmer from "../components/Shimmer"
 
 const Write = () => {
   const [value, setValue] = useState("")
@@ -124,14 +125,13 @@ const Write = () => {
           />
         </div>
         <button
-          disabled={mutation.isPending || (0 < progress && progress < 100)}
+          disabled={mutation.isPending || loading}
           className="bg-blue-800 text-white font-medium rounded-xl mt-4 p-2 w-36 disabled:bg-blue-400 disabled:cursor-not-allowed"
         >
           {mutation.isPending ? "Loading..." : "Send"}
         </button>
-        {/* {"Progress:" + progress}
-        {mutation.isError && <span>{mutation.error.message}</span>} */}
       </form>
+      <Shimmer />
     </div>
   )
 }

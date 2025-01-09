@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import React from "react"
 import client from "../apis/client"
+import Shimmer from "./Shimmer"
 
 const fetchPost = async (uid) => {
   const res = await client.get(`posts/count?userId=${uid}`)
@@ -13,7 +14,7 @@ const UserData = ({ user }) => {
     queryFn: () => fetchPost(user._id),
   })
 
-  if (isPending) return "loading..."
+  if (isPending) return <Shimmer />
   if (error) return "Something went wrong!" + error.message
   if (!data) return "Post not found!"
 

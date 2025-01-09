@@ -13,6 +13,7 @@ import { getUserDetails } from "./apis/auth"
 import { addUser } from "./redux/slices/userSlices"
 import AboutPage from "./pages/AboutPage"
 import ProfilePage from "./pages/ProfilePage"
+import Shimmer from "./components/Shimmer"
 
 const App = () => {
   const [loading, setLoading] = useState(true)
@@ -28,7 +29,7 @@ const App = () => {
     getUser()
   }, [])
 
-  if (loading) return <div>loading...</div>
+  if (loading) return <Shimmer />
   return (
     <BrowserRouter>
       <Navbar />

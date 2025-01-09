@@ -71,8 +71,8 @@ const ProfilePage = () => {
       </div>
       <UserData user={user} />
       <div className="w-full">
-        <div className="mb-6">
-          <h2 className="text-2xl font-bold mb-2">Saved Posts</h2>
+        <div className="mb-2">
+          <h2 className="text-2xl font-bold">Saved Posts</h2>
           <p className="text-neutral-600">
             Your collection of saved articles and posts
           </p>
