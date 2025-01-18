@@ -72,7 +72,7 @@ const ProfilePage = () => {
             Your collection of saved articles and posts
           </p>
         </div>
-        <div className="w-full grid grid-cols-3 gap-6 p-6 ">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 p-6 ">
           {user.savedPosts.length > 0 ? (
             user.savedPosts.map((post) => {
               return (
