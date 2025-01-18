@@ -55,7 +55,7 @@ const Write = () => {
   }
 
   return (
-    <div className="h-[calc(100vh-64px)] md:h-[calc(100vh-80px)] flex flex-col gap-6 px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
+    <div className="h-screen md:h-screen flex flex-col gap-6 px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
       <h1 className="text-cl font-bold">Create a New Post</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-6 flex-1 mb-6">
         <div className="flex items-center gap-3">
@@ -118,7 +118,7 @@ const Write = () => {
           </div>
           <ReactQuill
             theme="snow"
-            className="flex-1 rounded-xl bg-white shadow-md"
+            className="flex-1 h-[190px] md:h-[200px] xl:h-[280px] overflow-auto rounded-xl bg-white shadow-md"
             value={value}
             onChange={setValue}
             readOnly={0 < progress && progress < 100}

@@ -19,10 +19,13 @@ body {
 
 .ql-container {
   border: none !important;
+  height: 100%;
 }
 .ql-toolbar {
   border: none !important;
 }
 .ql-editor {
   border: none !important;
+  height: 100%; /* Ensure the editor itself fits within the container */
+  overflow-y: auto;
 }

@@ -48,7 +48,7 @@ const Navbar = () => {
         {/* MOBILE LINK LIST */}
         <div
           className={`w-full h-screen bg-[#e6e6ff] flex flex-col items-center justify-center gap-8 font-medium text-lg absolute top-16 transition-all ease-in-out ${
-            open ? "-right-0" : "-right-[100%]"
+            open ? "-right-0" : "hidden"
           }`}
         >
           <Link to="/" onClick={() => setOpen(false)}>
@@ -97,7 +97,7 @@ const Navbar = () => {
         <Link to="/">Home</Link>
         <Link to="/posts?sort=trending">Trending</Link>
         <Link to="/posts?sort=popular">Most Popular</Link>
-        <Link to="/">About</Link>
+        <Link to="/about">About</Link>
         {isLoggedIn ? (
           <div className="flex gap-4 items-center">
             <button
