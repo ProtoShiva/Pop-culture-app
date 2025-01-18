@@ -2,10 +2,13 @@ import React from "react"
 import Image from "./Image"
 import LogoutModal from "./LogoutModal"
 import appImg from "../asset/icon.png"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { useSelector } from "react-redux"
 const Navbar = () => {
   const isLoggedIn = useSelector((store) => store.user.userDetails)
+  const location = useLocation()
+  const myPath = location.pathname
+
   return (
     <div className="navbar flex justify-between items-center px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
       <div className="flex justify-between w-full items-center">
@@ -47,9 +50,11 @@ const Navbar = () => {
             </Link>
           </div>
         ) : (
-          <Link to={"/login"}>
-            <button className="btn btn-outline btn-success">Login</button>
-          </Link>
+          myPath !== "/login" && (
+            <Link to={"/login"}>
+              <button className="btn btn-outline btn-success">Login</button>
+            </Link>
+          )
         )}
       </div>
       <LogoutModal />

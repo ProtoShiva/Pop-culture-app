@@ -7,11 +7,15 @@ const PostListPage = () => {
   const [searchParams, setSearchParams] = useSearchParams()
   const category = searchParams.get("cat")
   const writer = searchParams.get("author")
+  const popular = searchParams.get("sort")
   const [open, setOpen] = useState(false)
   return (
     <div className="px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
       <h1 className="mb-8 mt-2 text-2xl font-bold">
-        {category || writer} Blogs
+        {category === "general"
+          ? "All"
+          : category || writer || popular || "All"}
+        <span className="ml-2"> Blogs</span>
       </h1>
       <button
         onClick={() => setOpen((prev) => !prev)}

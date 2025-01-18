@@ -31,7 +31,7 @@ const ProfilePage = () => {
     mutation.mutate(data)
   }
   return (
-    <div className="h-fit mt-4 px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
+    <div className="mt-4 px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
       <div className="bg-white rounded-lg border border-neutral-200 p-8 mb-6">
         <div className="flex flex-col md:flex-row items-center gap-6">
           <Image
@@ -65,15 +65,15 @@ const ProfilePage = () => {
         </div>
       </div>
       <UserData user={user} />
-      <div className="w-full">
+      <div className="w-full h-fit">
         <div className="mb-2">
           <h2 className="text-2xl font-bold">Saved Posts</h2>
           <p className="text-neutral-600">
             Your collection of saved articles and posts
           </p>
         </div>
-        <div className="w-full grid grid-cols-3 gap-6 p-6">
-          {user.savedPosts ? (
+        <div className="w-full grid grid-cols-3 gap-6 p-6 ">
+          {user.savedPosts.length > 0 ? (
             user.savedPosts.map((post) => {
               return (
                 <PostCard
@@ -86,7 +86,9 @@ const ProfilePage = () => {
               )
             })
           ) : (
-            <div>You have not created any posts yet</div>
+            <div className="text-4xl col-span-3 font-semibold p-16">
+              You have not saved any posts yet...
+            </div>
           )}
         </div>
       </div>

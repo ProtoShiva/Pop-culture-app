@@ -41,14 +41,18 @@ const PostList = () => {
       hasMore={!!hasNextPage}
       loader={<Shimmer />}
       endMessage={
-        <p>
-          <b>All posts loaded!</b>
-        </p>
+        allPosts.length > 0 ? (
+          <p>
+            <b>You Reached at End...</b>
+          </p>
+        ) : null
       }
     >
-      {allPosts.map((post) => (
-        <PostListItem key={post._id} post={post} />
-      ))}
+      {allPosts.length > 0 ? (
+        allPosts.map((post) => <PostListItem key={post._id} post={post} />)
+      ) : (
+        <div>No Posts Available...</div>
+      )}
     </InfiniteScroll>
   )
 }

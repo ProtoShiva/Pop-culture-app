@@ -14,6 +14,7 @@ import { addUser } from "./redux/slices/userSlices"
 import AboutPage from "./pages/AboutPage"
 import ProfilePage from "./pages/ProfilePage"
 import Shimmer from "./components/Shimmer"
+import Footer from "./components/Footer"
 
 const App = () => {
   const [loading, setLoading] = useState(true)
@@ -39,7 +40,8 @@ const App = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/" element={<HomePage />} />
-            <Route path="/" element={<AboutPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/posts" element={<PostListPage />} />
           </>
         )}
         <Route element={<ProtectedRoute />}>
@@ -53,6 +55,7 @@ const App = () => {
           <Route path="/profile" element={<ProfilePage />} />
         </Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }

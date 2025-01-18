@@ -3,14 +3,16 @@ import MainCategories from "../components/MainCategories"
 import FeaturedPosts from "../components/FeaturedPosts"
 import PostList from "../components/PostList"
 import { Link } from "react-router-dom"
+import Footer from "../components/Footer"
 
 const HomePage = () => {
   return (
     <div className="mt-4 flex flex-col gap-4 px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
       {/* INTRODUCTION */}
+
       <div className="flex items-center justify-between">
         {/* titles */}
-        <div className="">
+        <div>
           <h1 className="text-gray-800 text-2xl md:text-5xl lg:text-6xl font-bold">
             Join the Conversation That Shapes Pop Culture.
           </h1>
@@ -58,7 +60,6 @@ const HomePage = () => {
         </Link>
       </div>
       {/* CATEGORIES */}
-
       <MainCategories />
       {/* FEATURED POSTS */}
       <FeaturedPosts />
