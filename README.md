@@ -34,26 +34,27 @@ Make sure you have the following installed:
    ```bash
    cd Pop-culture-app
    ```
-3. Install dependencies for both frontend and backend:
+3. Install dependencies for frontend 
    ```bash
-   cd client
-   npm install
-   cd ../server
    npm install
    ```
-
-### Running the Project
-To start the development servers:
-1. Run the backend server:
+4. In another terminal, run the backend server:
+   For backend go to https://github.com/ProtoShiva/pop-culture-backend and clone the repo 
    ```bash
-   cd server
-   npm start
+   git clone https://github.com/ProtoShiva/pop-culture-backend.git
    ```
-2. In another terminal, run the frontend server:
+5. Run the backend server:
    ```bash
-   cd client
+   cd pop-culture-backend
    npm start
-   ```
+   ```   
 
+### Exploring the App
+
+<div align="center">
+        
+            <img src="https://ik.imagekit.io/hvjrbussmq/Screenshot%202025-01-18%20221626.png?updatedAt=1737296134340" alt="React Hook Form Logo - React hook custom hook for form validation" />
+       
+</div>
 
 Feel free to explore and enjoy the Pop Culture Meet project!
