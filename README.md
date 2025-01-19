@@ -52,9 +52,10 @@ Make sure you have the following installed:
 ### Exploring the App
 
 <div align="center">
-        
+        <a href="https://react-hook-form.com" title="React Hook Form - Simple React forms validation">
             <img src="https://ik.imagekit.io/hvjrbussmq/Screenshot%202025-01-18%20221626.png?updatedAt=1737296134340" alt="React Hook Form Logo - React hook custom hook for form validation" />
-       
+        </a>
 </div>
+
 
 Feel free to explore and enjoy the Pop Culture Meet project!
