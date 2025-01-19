@@ -53,7 +53,49 @@ Make sure you have the following installed:
 
 <div align="center">
         <a href="https://react-hook-form.com" title="React Hook Form - Simple React forms validation">
+            <img src="https://ik.imagekit.io/hvjrbussmq/Screenshot%202025-01-18%20221453.png?updatedAt=1737296531427" alt="React Hook Form Logo - React hook custom hook for form validation" />
+        </a>
+</div>
+
+<div align="center">
+        <a href="https://react-hook-form.com" title="React Hook Form - Simple React forms validation">
             <img src="https://ik.imagekit.io/hvjrbussmq/Screenshot%202025-01-18%20221626.png?updatedAt=1737296134340" alt="React Hook Form Logo - React hook custom hook for form validation" />
+        </a>
+</div>
+
+<div align="center">
+        <a href="https://react-hook-form.com" title="React Hook Form - Simple React forms validation">
+            <img src="https://ik.imagekit.io/hvjrbussmq/Screenshot%202025-01-18%20221544.png?updatedAt=1737296134335" alt="React Hook Form Logo - React hook custom hook for form validation" />
+        </a>
+</div>
+
+<div align="center">
+        <a href="https://react-hook-form.com" title="React Hook Form - Simple React forms validation">
+            <img src="https://ik.imagekit.io/hvjrbussmq/Screenshot%202025-01-18%20221812.png?updatedAt=1737296134305" alt="React Hook Form Logo - React hook custom hook for form validation" />
+        </a>
+</div>
+
+<div align="center">
+        <a href="https://react-hook-form.com" title="React Hook Form - Simple React forms validation">
+            <img src="https://ik.imagekit.io/hvjrbussmq/Screenshot%202025-01-18%20221856.png?updatedAt=1737296134401" alt="React Hook Form Logo - React hook custom hook for form validation" />
+        </a>
+</div>
+
+<div align="center">
+        <a href="https://react-hook-form.com" title="React Hook Form - Simple React forms validation">
+            <img src="https://ik.imagekit.io/hvjrbussmq/Screenshot%202025-01-18%20221928.png?updatedAt=1737296134300" alt="React Hook Form Logo - React hook custom hook for form validation" />
+        </a>
+</div>
+
+<div align="center">
+        <a href="https://react-hook-form.com" title="React Hook Form - Simple React forms validation">
+            <img src="https://ik.imagekit.io/hvjrbussmq/Screenshot%202025-01-18%20221832.png?updatedAt=1737296134377" alt="React Hook Form Logo - React hook custom hook for form validation" />
+        </a>
+</div>
+
+<div align="center">
+        <a href="https://react-hook-form.com" title="React Hook Form - Simple React forms validation">
+            <img src="https://ik.imagekit.io/hvjrbussmq/Screenshot%202025-01-18%20221645.png?updatedAt=1737296134589" alt="React Hook Form Logo - React hook custom hook for form validation" />
         </a>
 </div>
 
