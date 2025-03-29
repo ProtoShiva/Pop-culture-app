@@ -23,7 +23,10 @@ const SinglePostPage = () => {
   })
 
   if (isPending) return <Shimmer />
-  if (error) return "Something went wrong!" + error.message
+  if (error)
+    return (
+      <div className="h-screen">"Something went wrong!" + error.message</div>
+    )
   if (!data) return "Post not found!"
 
   return (
@@ -82,17 +85,6 @@ const SinglePostPage = () => {
                 className="text-blue-800"
               >
                 {data.user.name}
-              </Link>
-            </div>
-            <p className="text-sm text-gray-500">
-              Lorem ipsum dolor sit amet consectetur
-            </p>
-            <div className="flex gap-2">
-              <Link>
-                <Image src="facebook.svg" />
-              </Link>
-              <Link>
-                <Image src="instagram.svg" />
               </Link>
             </div>
           </div>

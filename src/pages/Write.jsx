@@ -7,7 +7,6 @@ import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
 import Upload from "../components/Upload"
 import Image from "../components/Image"
-import Shimmer from "../components/Shimmer"
 
 const Write = () => {
   const [value, setValue] = useState("")

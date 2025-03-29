@@ -8,10 +8,7 @@ import Footer from "../components/Footer"
 const HomePage = () => {
   return (
     <div className="mt-4 flex flex-col gap-4 px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64">
-      {/* INTRODUCTION */}
-
       <div className="flex items-center justify-between">
-        {/* titles */}
         <div>
           <h1 className="text-gray-800 text-2xl md:text-5xl lg:text-6xl font-bold">
             Join the Conversation That Shapes Pop Culture.
@@ -20,7 +17,7 @@ const HomePage = () => {
             Discuss, Debate, Dive into the Latest Buzz.
           </p>
         </div>
-        {/* animated button */}
+
         <Link to="write" className="hidden md:block relative">
           <svg
             viewBox="0 0 200 200"
@@ -59,11 +56,11 @@ const HomePage = () => {
           </button>
         </Link>
       </div>
-      {/* CATEGORIES */}
+
       <MainCategories />
-      {/* FEATURED POSTS */}
+
       <FeaturedPosts />
-      {/* POST LIST */}
+
       <div className="">
         <h1 className="my-8 text-2xl text-gray-600">Recent Posts</h1>
         <PostList />
